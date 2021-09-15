@@ -12,16 +12,25 @@ ssh maglev@< DNAC appliance IP> -p 2222
 
 curl -X POST -u admin:<admin user password> -H -V https://<CLUSTER-IP>/api/system/v1/identitymgmt/token
 
-Note: For admin password, please use a back slash in your password where a special character starts if there is any special character. Example password – admin:Test!23$ will be admin:Test\!23$)
-Screen Shot 2019-09-13 at 2.01.48 PM.png
+```
+curl -X POST -u atxadmin:password -H -V https://1.1.1.1./api/system/v1/identitymgmt/token
+{"Token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJz...OVHzIccOSIPHF2fhQR0E4DBRmDBuNAbrBUOYWh2Pk-HxYzAIL-3lupdZeJ7QFvYZgatEZjDk7PUSjWTK1q6qQSVb8zhQ-Sg4phf7-9JhfYCRkehXjdnJAootHwF_Y9iMeN4BraCbxQEbTFYzRFklqq58fMbLfCBWfaPQPr8OtJQ_w_dqaVhBNdKSSA"}
+[Tue Sep 14 23:53:12 UTC] maglev@1.1.1.1 (maglev-master-100-1-1-10) ~
 
+```
   
-### 3. Run this command to get member id:
+-u 后面紧跟的是 DNAC GUI 的用户名（默认是admin）和密码，如果密码有特殊字符，则需在该字符前加“\”，比如   -u admin:Test!23$ 改为：*-u admin:Test\!23$*
+  
+  
+### 3. Run this command to Re Provision the certificate for WLC:
 
-curl -X GET -H "X-Auth-Token:<PROVIDE THE TOKEN HERE>" -k http://telemetry-agent.maglev-system.svc.cluster.local:8011/api/telemetry-agent/v1/membership/info
+curl -X GET -H "Content-Type: application/json" -H "X-Auth-Token:<PROVIDE THE TOKEN HERE>" -k https://10.124.38.150/api/v1/wireless-telemetry/provision/wlc/100.1.1.21
 
+```
+  
+```
+    
 Note: Include X_Auth-Token in the command above without quotes.
-Screen Shot 2019-09-13 at 2.01.33 PM.png
 
 ###  4. You should get a response like this which contains the memberID:
 
