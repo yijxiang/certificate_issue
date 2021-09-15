@@ -29,7 +29,8 @@ curl -X POST -u admin:password -H -V https://1.1.1.1/api/system/v1/identitymgmt/
 
 curl -X POST -H "X-Auth-Token:<PROVIDE THE TOKEN HERE>" -H "Content-Type:application/json" -k https://<DNAC-IP>/api/v1/wireless-telemetry/provision/wlc/<WLC-ip>
 
-```curl -X POST -H "X-Auth-Token:eyJ0eX...(token)...WCdSRYA" -H "Content-Type:application/json" -k  https://1.1.1.1/api/v1/wireless-telemetry/provision/wlc/2.2.2.2
+```
+curl -X POST -H "X-Auth-Token:eyJ0eX...(token)...WCdSRYA" -H "Content-Type:application/json" -k  https://1.1.1.1/api/v1/wireless-telemetry/provision/wlc/2.2.2.2
 
 ```
 - 2.2.2.2 为 WLC IP 地址    
