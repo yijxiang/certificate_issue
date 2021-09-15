@@ -10,10 +10,10 @@ ssh maglev@< DNAC appliance IP> -p 2222
 
 ### 2. Run this curl command to get token:
 
-curl -X POST -u admin:<admin user password> -H -V https://<DNAC-IP>/api/system/v1/identitymgmt/token
+curl -X POST -u admin:<password-of-admin> -H -V https://<DNAC-IP>/api/system/v1/identitymgmt/token
 
 ```
-curl -X POST -u atxadmin:password -H -V https://1.1.1.1/api/system/v1/identitymgmt/token
+curl -X POST -u admin:password -H -V https://1.1.1.1/api/system/v1/identitymgmt/token
 {"Token":"eyJ0eX...(token)...WCdSRYA"}
 [Tue Sep 14 23:53:12 UTC] maglev@1.1.1.1 (maglev-master-100-1-1-10) ~
 
@@ -22,6 +22,7 @@ curl -X POST -u atxadmin:password -H -V https://1.1.1.1/api/system/v1/identitymg
 - curl -u 后面紧跟的是 DNAC GUI 的用户名（默认是admin）和密码，如果密码有特殊字符，则需在该字符前加“\“。
 - 1.1.1.1 为DNAC IP 地址 
 - 返回JSON数据中，“Token”: 之后为本次获取的token
+- admin 用户名称是默认设置，按实际情况更改为真实的管理用户名称
   
   
 ### 3. Run this command to Re Provision the certificate for WLC:
